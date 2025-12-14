@@ -368,12 +368,16 @@ require('lazy').setup({
 
         -- `build` is used to run some command when the plugin is installed/updated.
         -- This is only run then, not every time Neovim starts up.
-        build = 'make',
+        build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release --target install',
 
         -- `cond` is a condition used to determine whether this plugin should be
         -- installed and loaded.
         cond = function()
-          return vim.fn.executable 'make' == 1
+          local canBeInstalled = vim.fn.executable 'make' == 1 or vim.fn.executable 'ninja' == 1
+          if not canBeInstalled then
+            print 'Could not install nvim-telescope/telescope-fzf-native.nvim, because neither make or ninja were installed!'
+          end
+          return canBeInstalled
         end,
       },
       { 'nvim-telescope/telescope-ui-select.nvim' },
@@ -941,7 +945,7 @@ require('lazy').setup({
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
-    main = 'nvim-treesitter.configs', -- Sets main module to use for opts
+    main = 'nvim-treesitter.config', -- (changed .configs -> .config) Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
       ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },

@@ -234,6 +234,8 @@ end
 local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
 
+vim.lsp.enable 'clangd'
+
 -- [[ Configure and install plugins ]]
 --
 --  To check the current status of your plugins, run
@@ -675,7 +677,7 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        clangd = {},
+        -- clangd = {},
         -- gopls = {},
         -- pyright = {},
         -- rust_analyzer = {},

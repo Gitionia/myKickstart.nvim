@@ -129,7 +129,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Keep signcolumn on by default
-vim.o.signcolumn = 'yes'
+vim.o.signcolumn = 'no'
 
 -- Decrease update time
 vim.o.updatetime = 250
@@ -675,7 +675,7 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        -- clangd = {},
+        clangd = {},
         -- gopls = {},
         -- pyright = {},
         -- rust_analyzer = {},
@@ -794,6 +794,9 @@ require('lazy').setup({
           -- Build Step is needed for regex support in snippets.
           -- This step is not supported in many windows environments.
           -- Remove the below condition to re-enable on windows.
+          if vim.fn.executable 'cmake' == 1 then
+            return 'cmake --build install_jsregexp' -- added this because building should be possible
+          end
           if vim.fn.has 'win32' == 1 or vim.fn.executable 'make' == 0 then
             return
           end

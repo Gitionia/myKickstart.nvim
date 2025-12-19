@@ -90,6 +90,13 @@ P.S. You can delete this when you're done too. It's your config now! :)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- added from nvim-tree
+-- disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+-- optionally enable 24-bit colour
+vim.opt.termguicolors = true
+
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = false
 
@@ -234,6 +241,7 @@ end
 local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
 
+-- my lsp enabled
 vim.lsp.enable 'clangd'
 
 -- [[ Configure and install plugins ]]
@@ -284,6 +292,32 @@ require('lazy').setup({
         changedelete = { text = '~' },
       },
     },
+  },
+
+  {
+    'nvim-tree/nvim-tree.lua',
+    opts = { -- didn't seem to get loaded?!
+      -- sort = {
+      --   sorter = 'case_sensitive',
+      -- },
+      -- view = {
+      --   width = 30,
+      -- },
+      -- renderer = {
+      --   group_empty = true,
+      -- },
+      -- filters = {
+      --   dotfiles = true,
+      -- },
+    },
+    version = '*',
+    lazy = false,
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+    },
+    config = function()
+      require('nvim-tree').setup {}
+    end,
   },
 
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.

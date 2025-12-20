@@ -32,3 +32,19 @@ map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 --
 
 map('n', '<leader>e', '<cmd>NvimTreeToggle<CR>', { desc = 'Toggles the file window (nvim-tree)' })
+
+-- c++ specific
+local function switch_h_cpp()
+  local ext = vim.fn.expand '%:e' -- current file extension
+
+  if ext == 'h' or ext == 'hpp' then
+    vim.cmd ':e %:r.cpp'
+  elseif ext == 'cpp' then
+    vim.cmd ':e %:r.h'
+  else
+    print 'Not a C++ source/header file'
+    return
+  end
+end
+
+map('n', 'grs', switch_h_cpp, { desc = 'Switch between .cpp and .h (or .hpp) file' })

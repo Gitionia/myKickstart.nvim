@@ -78,29 +78,29 @@ require('lazy').setup({
           show = {
             file = true,
             folder = true,
-            folder_arrow = false, -- arrows are Nerd Font glyphs
-            git = false, -- git icons are Nerd Font glyphs
+            folder_arrow = true, -- arrows are Nerd Font glyphs
+            git = true, -- git icons are Nerd Font glyphs
           },
-          glyphs = {
-            default = '?', -- default file icon
-            folder = {
-              default = '📁',
-              open = '📂',
-              empty = '📁',
-              empty_open = '📂',
-              symlink = '🔗',
-              symlink_open = '🔗',
-            },
-            git = {
-              unstaged = '✗',
-              staged = '✓',
-              unmerged = '',
-              renamed = '➜',
-              untracked = '★',
-              deleted = '',
-              ignored = '◌',
-            },
-          },
+          --   glyphs = {
+          --     default = '?', -- default file icon
+          --     folder = {
+          --       default = '📁',
+          --       open = '📂',
+          --       empty = '📁',
+          --       empty_open = '📂',
+          --       symlink = '🔗',
+          --       symlink_open = '🔗',
+          --     },
+          --     git = {
+          --       unstaged = '✗',
+          --       staged = '✓',
+          --       unmerged = '',
+          --       renamed = '➜',
+          --       untracked = '★',
+          --       deleted = '',
+          --       ignored = '◌',
+          --     },
+          --   },
         },
       },
     },
@@ -846,95 +846,95 @@ require('lazy').setup({
   },
 })
 
-require('nvim-web-devicons').set_icon {
-  ['folder'] = {
-    icon = '📁', -- 📂 also works
-    color = '#61afef',
-    name = 'Folder',
-  },
-  ['.gitignore'] = { -- by exact filename
-    icon = '⊗',
-    color = '#f1502f',
-    name = 'GitIgnoreFile',
-  },
-  cpp = {
-    icon = 'cpp', -- Safe ASCII alternative
-    color = '#5c99ba',
-    name = 'Cpp',
-  },
-  c = {
-    icon = 'c', -- Safe ASCII
-    color = '#5c99ba',
-    name = 'C',
-  },
-  h = {
-    icon = 'h', -- Header files
-    color = '#9b73b4',
-    name = 'H',
-  },
-  hpp = {
-    icon = 'hpp', -- Header C++ files
-    color = '#9b73b4',
-    name = 'Hpp',
-  },
-  lua = {
-    icon = '🌙',
-    color = '#51a0cf',
-    name = 'lua',
-  },
-  vim = {
-    icon = '✎',
-    color = '#019833',
-    name = 'vim',
-  },
-  js = {
-    icon = 'j',
-    color = '#f1e05a',
-    name = 'javascript',
-  },
-  ts = {
-    icon = 't',
-    color = '#2b7489',
-    name = 'typescript',
-  },
-  json = {
-    icon = '{}',
-    color = '#cbcb41',
-    name = 'json',
-  },
-  html = {
-    icon = '<>',
-    color = '#e34c26',
-    name = 'html',
-  },
-  css = {
-    icon = '#',
-    color = '#563d7c',
-    name = 'css',
-  },
-  ['.md'] = {
-    icon = 'm',
-    color = '#083fa1',
-    name = 'markdown',
-  },
-  sh = {
-    icon = '$',
-    color = '#4d5a5e',
-    name = 'shell',
-  },
-  zsh = {
-    icon = '$',
-    color = '#428850',
-    name = 'zsh',
-  },
-  py = {
-    icon = '🐍',
-    color = '#3572a5',
-    name = 'python',
-  },
-  txt = {
-    icon = '📄',
-    color = '#6d8086',
-    name = 'text',
-  },
-}
+-- require('nvim-web-devicons').set_icon {
+--   ['folder'] = {
+--     icon = '📁', -- 📂 also works
+--     color = '#61afef',
+--     name = 'Folder',
+--   },
+--   ['.gitignore'] = { -- by exact filename
+--     icon = '⊗',
+--     color = '#f1502f',
+--     name = 'GitIgnoreFile',
+--   },
+--   cpp = {
+--     icon = 'cpp', -- Safe ASCII alternative
+--     color = '#5c99ba',
+--     name = 'Cpp',
+--   },
+--   c = {
+--     icon = 'c', -- Safe ASCII
+--     color = '#5c99ba',
+--     name = 'C',
+--   },
+--   h = {
+--     icon = 'h', -- Header files
+--     color = '#9b73b4',
+--     name = 'H',
+--   },
+--   hpp = {
+--     icon = 'hpp', -- Header C++ files
+--     color = '#9b73b4',
+--     name = 'Hpp',
+--   },
+--   lua = {
+--     icon = '🌙',
+--     color = '#51a0cf',
+--     name = 'lua',
+--   },
+--   vim = {
+--     icon = '✎',
+--     color = '#019833',
+--     name = 'vim',
+--   },
+--   js = {
+--     icon = 'j',
+--     color = '#f1e05a',
+--     name = 'javascript',
+--   },
+--   ts = {
+--     icon = 't',
+--     color = '#2b7489',
+--     name = 'typescript',
+--   },
+--   json = {
+--     icon = '{}',
+--     color = '#cbcb41',
+--     name = 'json',
+--   },
+--   html = {
+--     icon = '<>',
+--     color = '#e34c26',
+--     name = 'html',
+--   },
+--   css = {
+--     icon = '#',
+--     color = '#563d7c',
+--     name = 'css',
+--   },
+--   ['.md'] = {
+--     icon = 'm',
+--     color = '#083fa1',
+--     name = 'markdown',
+--   },
+--   sh = {
+--     icon = '$',
+--     color = '#4d5a5e',
+--     name = 'shell',
+--   },
+--   zsh = {
+--     icon = '$',
+--     color = '#428850',
+--     name = 'zsh',
+--   },
+--   py = {
+--     icon = '🐍',
+--     color = '#3572a5',
+--     name = 'python',
+--   },
+--   txt = {
+--     icon = '📄',
+--     color = '#6d8086',
+--     name = 'text',
+--   },
+-- }

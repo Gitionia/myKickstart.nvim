@@ -48,3 +48,6 @@ local function switch_h_cpp()
 end
 
 map('n', 'grs', switch_h_cpp, { desc = 'Switch between .cpp and .h (or .hpp) file' })
+
+-- git specific
+map('n', '<leader>gp', '<cmd>Gitsigns preview_hunk<CR>', { desc = 'Preview git hunk' })

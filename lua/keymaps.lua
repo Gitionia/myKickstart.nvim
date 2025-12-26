@@ -49,5 +49,25 @@ end
 
 map('n', 'grs', switch_h_cpp, { desc = 'Switch between .cpp and .h (or .hpp) file' })
 
+-- c++ build and run
+map('n', 'grb', '<cmd>!cmake --build build<CR>', { desc = 'Build cmake project to folder "build"' })
+
+local function run_exe()
+  local cwd = vim.fn.getcwd()
+  local cwdContent = vim.split(vim.fn.glob(cwd .. '/build/*.exe'), '\n', { trimempty = true })
+
+  for _, exeFullPath in pairs(cwdContent) do
+    local indexOfLastSlash = string.find(exeFullPath, '/[^/]*$')
+    -- On Windows check against \ slash instead of /
+    if indexOfLastSlash == nil then
+      indexOfLastSlash = string.find(exeFullPath, '\\[^\\]*$')
+    end
+
+    local exeFileName = string.sub(exeFullPath, indexOfLastSlash + 1, string.len(exeFullPath))
+    vim.cmd('!build\\' .. exeFileName)
+  end
+end
+map('n', 'gre', run_exe, { desc = 'Runs exe in "build" folder' })
+
 -- git specific
 map('n', '<leader>gp', '<cmd>Gitsigns preview_hunk<CR>', { desc = 'Preview git hunk' })

@@ -32,6 +32,7 @@ map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 --
 
 map('n', '<leader>e', '<cmd>NvimTreeToggle<CR>', { desc = 'Toggles the file window (nvim-tree)' })
+map('n', '<leader>ud', '<cmd>Dashboard<CR>', { desc = 'Opens the dashboard' })
 
 -- c++ specific
 local function switch_h_cpp()

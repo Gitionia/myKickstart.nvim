@@ -44,7 +44,13 @@ require('lazy').setup({
     end,
     dependencies = { { 'nvim-tree/nvim-web-devicons' } },
   },
-
+  {
+    'skardyy/neo-img',
+    build = ':NeoImg Install',
+    config = function()
+      require('neo-img').setup()
+    end,
+  },
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
   -- keys can be used to configure plugin behavior/loading/etc.

@@ -70,5 +70,12 @@ local function run_exe()
 end
 map('n', 'gre', run_exe, { desc = 'Runs exe in "build" folder' })
 
+local function build_and_run()
+  vim.cmd 'wa'
+  vim.cmd '!cmake --build build'
+  run_exe()
+end
+map('n', 'grE', build_and_run, { desc = 'Build and Run' })
+
 -- git specific
 map('n', '<leader>gp', '<cmd>Gitsigns preview_hunk<CR>', { desc = 'Preview git hunk' })
